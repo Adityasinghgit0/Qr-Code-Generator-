@@ -1,83 +1,92 @@
-*{
-
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
-body{
-    width: 100%;
+
+body {
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: grey;
+    align-items: center;
+    background: #1e1e1e;
+    transition: 0.4s;
 }
+
+body.light {
+    background: #e9e9e9;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
 .box {
-    background-color: #28282B;
-    padding: 30px; 
-    width: 400px;
-    border-radius: 8px;
+    width: 420px;
+    padding: 30px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    color: white;
 }
-.header h1{
+
+body.light .box {
+    background: white;
+    color: black;
+}
+
+.box h1 {
     text-align: center;
-    color: #FFD700;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-
+    color: #ffce00;
+    margin-bottom: 20px;
 }
-.header input{
+
+input[type=text], select, input[type=color], input[type=file] {
     width: 100%;
-    margin-block: 12px;
-}
-.header input, select{
-    padding: 8px;
+    padding: 10px;
+    margin: 10px 0;
     border-radius: 8px;
-    font-size: 18px;
+    border: 2px solid #ffce00;
     outline: none;
-    border: 2px solid #FFD700;
+}
 
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
 }
-.header label{
-    color: aliceblue;
-    margin-right: 20px;
-    font-size: 21px;
-}
-.header div{
+
+.footer {
+    margin-top: 25px;
     display: flex;
     justify-content: space-between;
 }
-.footer{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-}
-.footer a{
-    background-color: #FFD700;
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
+
+button {
+    flex: 1;
+    background: #ffce00;
+    border: none;
+    margin: 0 3px;
+    padding: 10px;
     border-radius: 8px;
-    padding: 14px 35px;
-    margin-inline: 2px;
-
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
 }
-.qr-body{
+
+button:hover {
+    background: #ffdb4d;
+}
+
+.qr-body {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding-top: 20px;  
-    overflow: hidden;
-}
-.qr-body img{
-    max-width: 250px;
-    max-height: 250px;
-    margin-block: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 18px;   
-    border: 0.5px solid;
-    border-color: #FFD700;
-
+    margin-top: 20px;
 }
