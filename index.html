@@ -3,35 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Qr code generator  ||  code traversal</title>
+    <title>Advanced QR Generator | Code Traversal</title>
+    <link rel="stylesheet" href="new.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="box">
-        <div class="header">
-            <h1>QR code generator</h1>
-            <input type="text" id="qr-text" placeholder="Enter your URL or TEXT">
-            <div class="">
-                <label for="size">select size: </label>
-                <select id="size" >
-                    
-                    <option value="100">100x100</option>
-                    <option value="200">200x200</option>
-                    <option value="300">300x300</option>
-                    <option value="400">400x400</option>
-                    <option value="500">500x500</option>
 
-                </select>
-            </div>
+    <div class="theme-toggle">🌙</div>
+
+    <div class="box">
+        <h1>QR Code Generator</h1>
+
+        <input type="text" id="qr-text" placeholder="Enter your URL or TEXT">
+
+        <div class="row">
+            <label>Size:</label>
+            <select id="size">
+                <option value="150">150x150</option>
+                <option value="250">250x250</option>
+                <option value="350">350x350</option>
+                <option value="500">500x500</option>
+            </select>
         </div>
+
+        <div class="row">
+            <label>Foreground:</label>
+            <input type="color" id="fgColor" value="#000000">
+
+            <label>Background:</label>
+            <input type="color" id="bgColor" value="#ffffff">
+        </div>
+
+        <div class="row">
+            <label>Logo (optional):</label>
+            <input type="file" id="logoInput" accept="image/*">
+        </div>
+
         <div class="qr-body"></div>
+
         <div class="footer">
-            <a href="#" id="generateBtn" type="button">Generate</a>
-            <a href="#" id="downloadBtn" type="button">Download</a>
+            <button id="generateBtn">Generate</button>
+            <button id="downloadPngBtn">PNG</button>
+            <button id="downloadJpgBtn">JPG</button>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="new.js"></script>
 </body>
 </html>
