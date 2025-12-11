@@ -1,50 +1,93 @@
-const qrText = document.getElementById('qr-text');
-const size = document.getElementById('size');
-const generateBtn = document.getElementById('generateBtn');
-const downloadBtn = document.getElementById('downloadBtn');
-const qrContainer = document.querySelector('.qr-body');
-
-let sizes = size.value;
-
-
-generateBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    isEmptyInput();
-});
-
-
-size.addEventListener('change', (e) => {
-    sizes = e.target.value;
-});
-
-
-function isEmptyInput() {
-    if (qrText.value.length > 0) {
-        generateQRcode();
-    } else {
-        alert("Enter the text or URL to generate your QR code");
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-
-function generateQRcode() {
-    qrContainer.innerHTML = "";
-    new QRCode(qrContainer, {
-        text: qrText.value || "No Text Entered",
-        height: parseInt(size.value),
-        width: parseInt(size.value),
-        colorLight: "#fff",
-        colorDark: "#000",
-    });
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+    transition: 0.4s;
 }
-downloadBtn.addEventListener('click', () => {
-    const img = qrContainer.querySelector('img');
-    if (img) {
-        const link = document.createElement('a');
-        link.href = img.src;
-        link.download = 'qrcode.png';
-        link.click();
-    } else {
-        alert('Please generate a QR code first.');
-    }
-});
+
+body.light {
+    background: #e9e9e9;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.box {
+    width: 420px;
+    padding: 30px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+body.light .box {
+    background: white;
+    color: black;
+}
+
+.box h1 {
+    text-align: center;
+    color: #ffce00;
+    margin-bottom: 20px;
+}
+
+input[type=text], select, input[type=color], input[type=file] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 2px solid #ffce00;
+    outline: none;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    flex: 1;
+    background: #ffce00;
+    border: none;
+    margin: 0 3px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ffdb4d;
+}
+
+.qr-body {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
